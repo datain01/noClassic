@@ -11,21 +11,18 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
-        with:
-          submodules: true
-          fetch-depth: 0
+        uses: actions/checkout@v2.5.0
 
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2.4.1
         with:
-          node-version: 16.x
+          node-version: '16'
 
       - name: Build and Deploy
         run: |
           mkdir dist
-          cp index.html dist/
-          cp helloWorldImage.png dist/
+          cp noClassic/index.html dist/
+          cp noClassic/helloWorldImage.png dist/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
