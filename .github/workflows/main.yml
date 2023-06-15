@@ -20,9 +20,8 @@ jobs:
 
       - name: Build and Deploy
         run: |
-          mkdir dist
           cp index.html dist/
-          cp helloWorldImage.png dist/
+          cp helloWorldImage.png dist/ || true
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
